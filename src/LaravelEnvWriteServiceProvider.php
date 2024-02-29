@@ -2,9 +2,9 @@
 
 namespace MohSlimani\LaravelEnvWrite;
 
+use MohSlimani\LaravelEnvWrite\Commands\LaravelEnvWriteCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use MohSlimani\LaravelEnvWrite\Commands\LaravelEnvWriteCommand;
 
 class LaravelEnvWriteServiceProvider extends PackageServiceProvider
 {

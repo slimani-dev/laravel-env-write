@@ -8,10 +8,12 @@ use MohSlimani\LaravelEnvWrite\Facades\LaravelEnvWrite;
 class LaravelEnvWriteCommand extends Command
 {
     public const ARGUMENT_KEY = 'key';
+
     public const ARGUMENT_VALUE = 'value';
+
     public $signature = 'env:write'
-    . ' {' . self::ARGUMENT_KEY . ' : Key or "key=value" pair}'
-    . ' {' . self::ARGUMENT_VALUE . '? : Value}';
+    .' {'.self::ARGUMENT_KEY.' : Key or "key=value" pair}'
+    .' {'.self::ARGUMENT_VALUE.'? : Value}';
 
     public $description = 'update the .env file';
 

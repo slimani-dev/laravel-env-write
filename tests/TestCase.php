@@ -2,9 +2,8 @@
 
 namespace MohSlimani\LaravelEnvWrite\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use MohSlimani\LaravelEnvWrite\LaravelEnvWriteServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
