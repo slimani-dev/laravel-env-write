@@ -5,15 +5,20 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/moh-slimani/laravel-env-write/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/moh-slimani/laravel-env-write/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/moh-slimani/laravel-env-write.svg?style=flat-square)](https://packagist.org/packages/moh-slimani/laravel-env-write)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+LaravelEnvWrite is a Laravel package designed to simplify the process of updating the .env file in Laravel applications.
+It provides a convenient way to automatically update the environment file during database seeding or from anywhere in
+the codebase.
 
 ## Support us
 
 [<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-env-write.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-env-write)
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can
+support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
+You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards
+on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -23,37 +28,44 @@ You can install the package via composer:
 composer require moh-slimani/laravel-env-write
 ```
 
-You can publish and run the migrations with:
+## Configuration
 
-```bash
-php artisan vendor:publish --tag="laravel-env-write-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="laravel-env-write-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-env-write-views"
-```
+The package doesn't require any additional configuration. Once installed, you can start using it immediately.
 
 ## Usage
 
+### Command Line Interface
+
+The package provides an Artisan command to update the .env file from the command line.
+
+```bash
+php artisan env:write {key} {value?}
+```
+
+- {key}: The key to update in the .env file. It can be provided either as a single argument or in the format key=value.
+- {value}: The value to set for the key. This argument is optional and only required when providing a single argument
+  for the key.
+
+#### Examples
+
+```bash
+php artisan env:write APP_ENV production
+```
+
+```bash
+php artisan env:write APP_KEY=your_app_key
+```
+
+### Programmatically
+You can also use the package programmatically in your codebase:
+
+
+
 ```php
-$laravelEnvWrite = new MohSlimani\LaravelEnvWrite();
-echo $laravelEnvWrite->echoPhrase('Hello, MohSlimani!');
+use MohSlimani\LaravelEnvWrite\Facades\LaravelEnvWrite;
+
+// Update the environment file with a specific key and value
+LaravelEnvWrite::updateEnvironmentFileWith('APP_ENV', 'production');
 ```
 
 ## Testing
